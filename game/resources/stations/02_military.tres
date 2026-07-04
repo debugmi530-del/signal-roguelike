@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StationTheme" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://autoload/StationTheme.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "military"
+display_name = "Военные позывные"
+description = "Частота: Военные позывные"
+background_color = Color(0.15,0.18,0.12, 1)
+wall_color = Color(0.28,0.3,0.22, 1)
+accent_color = Color(0.7,0.85,0.3, 1)
+favored_enemy_ids = Array[String](["scrambler_drone", "sentry_burst"])

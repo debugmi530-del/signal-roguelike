@@ -1,0 +1,60 @@
+name: Build & Release SIGNAL
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch: {}
+
+env:
+  GODOT_VERSION: "4.3.0"
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download Godot export templates
+        shell: bash
+        run: |
+          set -e
+          mkdir -p "$HOME/godot"
+          curl -L -o godot.zip "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_win64.exe.zip"
+          curl -L -o templates.tpz "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+          unzip -q godot.zip -d "$HOME/godot"
+          mkdir -p "$HOME/AppData/Roaming/Godot/export_templates/${GODOT_VERSION}.stable"
+          unzip -q templates.tpz -d "$HOME/tpz_extract"
+          cp -r "$HOME/tpz_extract/templates/"* "$HOME/AppData/Roaming/Godot/export_templates/${GODOT_VERSION}.stable/"
+
+      - name: Export Windows build
+        shell: bash
+        run: |
+          set -e
+          GODOT_BIN=$(find "$HOME/godot" -iname "Godot_v*win64*.exe" | head -n 1)
+          mkdir -p game/builds/windows
+          "$GODOT_BIN" --headless --path game --export-release "Windows Desktop" builds/windows/SIGNAL.exe
+
+      - name: Install Inno Setup
+        run: choco install innosetup -y
+
+      - name: Build installer
+        shell: cmd
+        run: |
+          "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" game\installer\setup.iss
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SIGNAL-Setup
+          path: game/dist/SIGNAL-Setup.exe
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: game/dist/SIGNAL-Setup.exe
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

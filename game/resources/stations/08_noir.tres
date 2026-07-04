@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StationTheme" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://autoload/StationTheme.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "noir"
+display_name = "Детектив-нуар"
+description = "Частота: Детектив-нуар"
+background_color = Color(0.08,0.08,0.1, 1)
+wall_color = Color(0.18,0.18,0.2, 1)
+accent_color = Color(0.8,0.8,0.85, 1)
+favored_enemy_ids = Array[String](["scrambler_drone", "mic_feedback"])

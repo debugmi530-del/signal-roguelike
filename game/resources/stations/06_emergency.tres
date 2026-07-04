@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StationTheme" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://autoload/StationTheme.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "emergency"
+display_name = "Аварийное вещание"
+description = "Частота: Аварийное вещание"
+background_color = Color(0.3,0.05,0.05, 1)
+wall_color = Color(0.5,0.1,0.1, 1)
+accent_color = Color(1.0,0.7,0.1, 1)
+favored_enemy_ids = Array[String](["sentry_burst", "storm_wisp"])

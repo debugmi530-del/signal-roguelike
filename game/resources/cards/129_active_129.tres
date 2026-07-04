@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardItem" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://autoload/CardItem.gd" id="1"]
+[ext_resource type="Script" path="res://autoload/CardModifier.gd" id="2"]
+
+[sub_resource type="Resource" id="Mod0"]
+script = ExtResource("2")
+stat = 1
+value = 1.4
+
+[resource]
+script = ExtResource("1")
+module = "active"
+id = "active_129"
+display_name = "Активный всплеск IV"
+flavor_text = "Импульс по требованию."
+rarity = 3
+modifiers = Array[ExtResource("2")]([SubResource("Mod0")])
+is_sacrifice = false
+sacrifice_modifiers = Array[ExtResource("2")]([])

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://autoload/EnemyData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "sentry_burst"
+display_name = "Импульсная турель"
+max_hp = 22.0
+move_speed = 40.0
+contact_damage = 2.0
+radius = 18.0
+color = Color(0.9,0.55,0.2, 1)
+is_ranged = true
+projectile_speed = 300.0
+fire_interval = 1.4
+xp_weight = 1.0

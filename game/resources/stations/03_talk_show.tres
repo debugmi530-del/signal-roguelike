@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StationTheme" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://autoload/StationTheme.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "talk_show"
+display_name = "Ночное ток-шоу"
+description = "Частота: Ночное ток-шоу"
+background_color = Color(0.12,0.08,0.16, 1)
+wall_color = Color(0.24,0.16,0.28, 1)
+accent_color = Color(0.85,0.4,0.9, 1)
+favored_enemy_ids = Array[String](["mic_feedback", "sentry_burst"])

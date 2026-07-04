@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://autoload/EnemyData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "mic_feedback"
+display_name = "Обратная связь"
+max_hp = 14.0
+move_speed = 110.0
+contact_damage = 1.0
+radius = 13.0
+color = Color(0.8,0.3,0.85, 1)
+is_ranged = false
+projectile_speed = 260.0
+fire_interval = 1.6
+xp_weight = 1.0

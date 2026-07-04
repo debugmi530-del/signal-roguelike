@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://autoload/EnemyData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "static_puppet"
+display_name = "Статичная кукла"
+max_hp = 12.0
+move_speed = 90.0
+contact_damage = 1.0
+radius = 14.0
+color = Color(0.9,0.4,0.4, 1)
+is_ranged = false
+projectile_speed = 260.0
+fire_interval = 1.6
+xp_weight = 1.0

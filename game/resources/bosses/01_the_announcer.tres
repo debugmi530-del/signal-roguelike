@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://autoload/BossData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "the_announcer"
+display_name = "Диктор"
+max_hp = 260.0
+move_speed = 55.0
+contact_damage = 2.0
+radius = 36.0
+color = Color(0.9,0.3,0.5, 1)
+projectile_speed = 280.0
+burst_count = 10
+burst_interval = 2
+phase_two_hp_ratio = 0.5

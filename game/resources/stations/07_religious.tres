@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StationTheme" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://autoload/StationTheme.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "religious"
+display_name = "Религиозная трансляция"
+description = "Частота: Религиозная трансляция"
+background_color = Color(0.2,0.16,0.05, 1)
+wall_color = Color(0.4,0.32,0.1, 1)
+accent_color = Color(1.0,0.95,0.6, 1)
+favored_enemy_ids = Array[String](["mic_feedback", "static_puppet"])
